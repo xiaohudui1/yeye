@@ -2,22 +2,26 @@ let obj ={
     data:[{
         name:'首页',
         key:'0',
-        path:'/admin/home'
+        path:'/admin/home',
+        type:'home'
     },
     {
         name:'商品管理',
         key:'1',
         path:'/admin/food',
+        type:"wallet",
         children:[
             {
                 name:'商品列表',
                 key:'1-0',
                 path:'/admin/food/list',
+                type:'flag'
             },
             {
                 name:'商品添加',
                 key:'1-1',
                 path:'/admin/food/add',
+                type:'edit'
             },
         ]
       },
@@ -25,11 +29,13 @@ let obj ={
         name:'营销',
         key:'2',
         path:'/admin/market',
+        type:'account-book',
         children:[
             {
                 name:'广告列表',
                 key:'2-0',
                 path:'/admin/market/banner',
+                type:'customer-service'
             },
         ]
       },
@@ -37,16 +43,19 @@ let obj ={
         name:'订单管理',
         key:'3',
         path:'/admin/order',
+        type:'aliwangwang',
         children:[
             {
                 name:'订单列表',
                 key:'3-0',
                 path:'/admin/order/list',
+                type:'shop',
             },
             {
                 name:'退货申请',
                 key:'3-1',
                 path:'/admin/order/things',
+                type:'unlock'
             },
         ]
       },
