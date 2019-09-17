@@ -3,6 +3,11 @@ import {Card,Table, Button,Pagination,Spin,Popconfirm, message} from 'antd'
 class FoodList extends Component{
     constructor(){
         super()
+        this.state={
+          soureData:[],
+          page:1,
+          pageSize:4,
+        }
     }
     //创建表头信息
     columns=[
@@ -65,7 +70,20 @@ class FoodList extends Component{
           },
       ]
       initData(page,pageSize){
-
+        let url = '/api/admin/food/find'
+        let data ={
+            page:page,
+            pageSize:pageSize,
+            token:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtYWlsIjoi546L5LiA5Y2aIiwicGFzc3dvcmQiOiIxMjMiLCJpYXQiOjE1Njg3MjM4NTAsImV4cCI6MTU2ODcyNzQ1MH0.xaqZcV11PinRfJKK3GP3OooTRiLhrFi43kjC6HpbpMA'
+        }
+        this.$axios.post(url,data)
+        .then((res)=>{
+          console.log(res)
+        })
+      }
+      componentDidMount(){
+        let {page,pageSize} = this.state
+        this.initData(page,pageSize)
       }
     render(){
         return(
