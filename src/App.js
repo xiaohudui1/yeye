@@ -1,9 +1,8 @@
 import React from 'react';
-import Demo from './pages/demo'
-function App() {
+function App(props) {
   return (
     <div className="App">
-      <Demo></Demo>
+      {props.children}
     </div>
   );
 }
