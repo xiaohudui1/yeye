@@ -1,26 +1,23 @@
 import  axios from 'axios'
-// Add a request interceptor
 import Store from '../store/store'
 import ActionCreator from '../store/actioncreator'
 axios.interceptors.request.use(function (config) {
-  // Do something before request is sent
-  let {method} = config
+  let {method,data} = config
   let token  = localStorage.getItem('token')
   if(method === 'get'){
     config.url+=`&token=${token}`
   }
+  if(method === 'post'){
+    data.token=`${token}`
+  }
   return config;
 }, function (error) {
-  // Do something with request error
   return Promise.reject(error);
 });
 
-// Add a response interceptor
-axios.interceptors.response.use(function (response) {
-  // Do something with response data
+axios.interceptors.response.use(function (response) {//请求拦截器
   if(response.status === 200){
     if(response.data.err !== 0){
-      Store.dispatch(ActionCreator.changModelState())
     }
     return response.data
     
