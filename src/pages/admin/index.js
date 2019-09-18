@@ -9,11 +9,13 @@ class Admin extends Component{
                  <LeftNav></LeftNav>
              </div>
              <div className='admin-right'>
-             <div className='admin-right-top'>top</div>
+             <div className='admin-right-top'>
+                 <h1 className="admin-span">mall-admin-web</h1>
+             </div>
              <div className='admin-right-center'>
                  {this.props.children}
              </div>
-             <div className='admin-right-footer'>footer</div>
+             <div className='admin-right-footer'></div>
              </div>
           </div>
         )
