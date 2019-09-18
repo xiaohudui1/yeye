@@ -2,7 +2,8 @@ import React,{Component} from 'react'
 import {HashRouter,Route,Switch,Redirect} from 'react-router-dom'
 import App from './App'
 import Admin from 'pages/admin'
-import OrderList from 'pages/order'
+import OrderList from 'pages/order/orderList'
+
 class RootRouter extends Component{
     render(){
         return(
@@ -15,6 +16,7 @@ class RootRouter extends Component{
                         return(
                             <Admin>
                                 <Route path="/admin/order/list" component={OrderList}></Route>
+                                
                             </Admin>
                         )
                     }}></Route>
