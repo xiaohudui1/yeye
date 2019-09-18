@@ -82,11 +82,19 @@ module.exports = function(proxy, allowedHost) {
     },
     public: allowedHost,
     proxy:{
+<<<<<<< HEAD
       'zhou':{
         targer:'http://localhost:3003',
         changeOrigin:true,
         pathRewrite:{
           '^/zhou':''
+=======
+      '/api':{
+        target:'http://10.9.22.12:8080',
+        changeOrigin:true,
+        pathRewrite:{
+          '^/api':''
+>>>>>>> 508bff09dfc4a6d780e99f2abe7538f12e7baecd
         }
       }
     },

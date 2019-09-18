@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import {Card,Table, Button, message,Popconfirm,Pagination, Input} from 'antd'
+import {Card, Button, message, Input} from 'antd'
 import './index.less'
 class OrderAdd extends Component{
     constructor(){
