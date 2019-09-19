@@ -77,13 +77,13 @@ class OrderList extends Component{
       OrderDel=(id)=>{
         this.$axios({
             method:'post',
-            url:"http://localhost:3003/admin/order/del",
+            url:"/zhou/admin/order/del",
             data:{
               _id:id
             }
           })
           .then((res)=>{
-                this.orderInit()
+                this.orderInit(this.state.page,this.state.pageSize)
                 message.success('删除成功');
           })
           
@@ -91,7 +91,7 @@ class OrderList extends Component{
     orderInit(page,pageSize){
           this.$axios({
             method:'post',
-            url:"http://localhost:3003/admin/order/findPage",
+            url:"/zhou/admin/order/findPage",
             data:{
               page:page,
               pageSize:pageSize,
@@ -131,13 +131,13 @@ class OrderList extends Component{
       orderFind=()=>{
         this.$axios({
             method:'post',
-            url:"http://localhost:3003/admin/order/mohuFind",
+            url:"/zhou/admin/order/mohuFind",
             data:{
               kw:this.state.mohuVal,
               pageSize:5,
               page:1
             },
-            header:{"content-type":"x-www-form-urlencoded"}
+            
           })
           .then((res)=>{
               if(res.err===0){
