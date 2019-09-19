@@ -11,7 +11,7 @@ class OrderUpdata extends Component{
         let{_id,order_amount,payment_method,order_source,order_state} =this.state
         this.$axios({
             method:'post',
-            url:"http://localhost:3003/admin/order/update",
+            url:"/zhou/admin/order/update",
             data:{
                 _id:_id,
                 order_amount:order_amount,
