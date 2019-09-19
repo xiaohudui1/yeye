@@ -45,7 +45,7 @@ class FoodAdd extends Component{
         this.$axios.post('/api/admin/file/upload',formData)
         .then((res)=>{
             if(res.err===0){
-              let path = 'http://localhost:8080'+res.imgpath
+              let path = 'http://10.9.22.12:8080'+res.imgpath
               this.setState({imgPath: path })
             }
             
