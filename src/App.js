@@ -1,9 +1,8 @@
 import React from 'react';
-
-function App() {
+function App(props) {
   return (
     <div className="App">
-      dada
+      {props.children}
     </div>
   );
 }
