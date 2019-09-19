@@ -20,7 +20,7 @@ class OrderAdd extends Component{
         let{id,order_id,submit_time,user_account,order_amount,payment_method,order_source,order_state} =this.state
         this.$axios({
             method:'post',
-            url:"http://localhost:3003/admin/order/add",
+            url:"/zhou/admin/order/add",
             data:{
                 id:id,
                 order_id,
