@@ -96,6 +96,13 @@ module.exports = function(proxy, allowedHost) {
         pathRewrite:{
           '^/api':''
         }
+      },
+      '/admin/foode':{
+        target:'http://localhost:8080',
+        changeOrigin:true,
+        pathRewrite:{
+          '^/admin/foode':''
+        }
       }
     },
    
