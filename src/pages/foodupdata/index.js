@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import { Form, Icon, Input, Button, Checkbox,Card,Select, message} from 'antd';
-import './index.less'
+import style from './index.module.less'
 class Updata extends Component{
     constructor(props){
         super()
@@ -20,15 +20,15 @@ class Updata extends Component{
         this.$axios.post('/api/admin/file/upload',formData)
         .then((data)=>{
         if(data.err===0){
-          this.setState({img:'http://localhost:8080'+data.imgpath})
+          this.setState({img:'http://10.9.22.12:8080'+data.imgpath})
         }
       })
     }
     render(){
         let {name,price,img,desc,foodtype} = this.state
         return(
-            <div className='updata'>
-            <Card className='card'>
+            <div className={style.updata}>
+            <Card className={style.card}>
             <span>名字：</span><input type='text'
             style={{width:400}}
             value={name} onChange={(e)=>{

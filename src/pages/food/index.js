@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
-import {Card,Table, Button,Pagination,Spin,Popconfirm, message} from 'antd'
+import {Card,Table, Button,Pagination,Spin,Popconfirm, message,Icon} from 'antd'
 import Foodupdata from 'pages/foodupdata'
-import './index.less'
+import style from './index.module.less'
 class FoodList extends Component{
     constructor(){
         super()
@@ -97,6 +97,9 @@ class FoodList extends Component{
             }
           },
       ]
+      orderListAdd=()=>{
+        this.props.history.push({pathname:'/admin/food/add'})
+      }
       updata=(render)=>{
         this.setState({updataShow:!this.state.updataShow,render:render})
       }
@@ -149,7 +152,14 @@ class FoodList extends Component{
     render(){
       let {count,dataSource,pageSize,loading,updataShow,render} = this.state
         return(
-          <Card>
+          <Card title={
+            <span > 
+                <Icon type="profile" />
+                <span>&nbsp;数据列表</span>
+                <Button type="primary" className={style.btn} onClick={this.orderListAdd}>添加</Button>
+            </span>
+        }>
+          
             <Spin 
             tip="数据加载中..."
             spinning={loading}
@@ -159,7 +169,7 @@ class FoodList extends Component{
              columns={this.columns}
              dataSource={dataSource}
              bordered
-             className='test'
+             className={style.test}
              scroll={{y: 300,x:1100}}
              pagination={false}//取消默认分页器
              />,

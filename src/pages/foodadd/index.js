@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import { Form, Icon, Input, Button, Checkbox,Card,Select, message} from 'antd';
-import './index.less'
+import style from './index.module.less'
 const { Option } = Select;
 class FoodAdd extends Component{
     constructor(){
@@ -54,7 +54,7 @@ class FoodAdd extends Component{
     render(){
         const { getFieldDecorator } = this.props.form;
         return(
-          <Card className='FoodAdd'>
+          <Card className={style.FoodAdd}>
         <Form>
         <Form.Item>
         <label>商品名称:</label>

@@ -1,10 +1,11 @@
 import React,{Component} from 'react'
 import {HashRouter,Route,Switch,Redirect} from 'react-router-dom'
 import App from './App'
-import Admin from 'pages/admin'
-import FoodList from 'pages/food'
-import FoodAdd from 'pages/foodadd'
-import OrderList from 'pages/order/orderList'
+import loadable from  'utils/loadingComponent'
+const  Admin = loadable(()=>import('pages/admin'))  
+const  FoodList = loadable(()=>import('pages/food')) 
+const  FoodAdd = loadable(()=>import('pages/foodadd')) 
+const  OrderList = loadable(()=>import('pages/order/orderList')) 
 class RootRouter extends Component{
     render(){
         return(
