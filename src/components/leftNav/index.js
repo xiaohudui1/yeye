@@ -8,7 +8,8 @@ class LeftNav extends Component{
     constructor(){
         super()
         this.state={
-            data:[]
+            data:[],
+            collapsed: false,
         }
     }
     //做axaj请求
@@ -25,7 +26,13 @@ class LeftNav extends Component{
         return arr.map((item)=>{
             if(item.children){
                 return(
-                    <SubMenu title={item.name} key={item.key}>
+                    <SubMenu title={
+                        <span>
+                            <Icon type={item.type}/>
+                            <span>{item.name}</span>
+                        </span>
+                    } key={item.key}>
+                        
                         {this.rederItem(item.children)}
                     </SubMenu>
                 )
@@ -33,14 +40,19 @@ class LeftNav extends Component{
                return(
                 <Menu.Item key={item.key}
                 onClick={this.jump.bind(this,item.path)}
-                >{item.name}</Menu.Item>
+                >
+                    <span>
+                        <Icon type={item.type} />
+                        <span>{item.name}</span>
+                    </span>
+                </Menu.Item>
                )
             }
         })
     }
     render(){
         return(
-            <Menu theme='dark' style={{ width: 256 }} mode="vertical">
+            <Menu theme='dark' mode="inline" style={{ width: 200 }}>
                 {this.rederItem(this.state.data)}
           </Menu>
         )

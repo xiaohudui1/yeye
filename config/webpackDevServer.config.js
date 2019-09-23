@@ -81,7 +81,31 @@ module.exports = function(proxy, allowedHost) {
       disableDotRule: true,
     },
     public: allowedHost,
-    proxy,
+    
+    proxy:{
+      '/zhou':{
+        target:'http://10.9.22.225:8080',
+        changeOrigin:true,
+        pathRewrite:{
+          '^/zhou':''
+        }
+      },
+      '/api':{
+        target:'http://10.9.22.12:8080',
+        changeOrigin:true,
+        pathRewrite:{
+          '^/api':''
+        }
+      },
+      '/admin/foode':{
+        target:'http://localhost:8080',
+        changeOrigin:true,
+        pathRewrite:{
+          '^/admin/foode':''
+        }
+      }
+    },
+   
     before(app, server) {
       if (fs.existsSync(paths.proxySetup)) {
         // This registers user provided middleware for proxy reasons
